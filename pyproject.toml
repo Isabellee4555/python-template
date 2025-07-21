@@ -22,7 +22,6 @@ dependencies = [
     "python-dotenv (>=1.1.1,<2.0.0)",
     "pytest-cov (>=6.2.1,<7.0.0)"
 ]
-package-mode = false
 
 
 [build-system]
