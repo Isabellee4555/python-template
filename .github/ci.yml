@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'  # or whatever your project uses
+
+      # 3. Install Poetry
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      # 4. Configure Poetry (disable venv creation, optional)
+      - name: Configure Poetry
+        run: poetry config virtualenvs.create false
+
+      # 5. Install dependencies
+      - name: Install dependencies
+        run: poetry install --no-interaction
+
+      # 6. Run pre-commit
+      - name: Run pre-commit hooks
+        run: poetry run pre-commit run --all-files
+
+      # 7. Run tests with pytest
+      - name: Run pytest
+        run: poetry run pytest -v
