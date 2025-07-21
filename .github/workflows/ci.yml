@@ -41,7 +41,7 @@ jobs:
 
       # 7. Run tests with pytest
       - name: Run pytest
-        run: poetry run pytest -v
+        run: PYTHONPATH=$(pwd) poetry run pytest -v
 
   pre-commit:
     runs-on: ubuntu-latest
