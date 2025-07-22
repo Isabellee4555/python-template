@@ -25,19 +25,19 @@ input_data = {
     "name": "Isabel",
     "email": "isabel@example.com",
     "tags": ["admin", "beta-tester"],
-    "scores": ["abc", 92.3],
+    "scores": [10.2, 92.3],
     "address": {"street": "42 Galaxy Ave", "city": "Moonville", "postcode": "12345"},
 }
 
 user = User(**input_data)
 
 input_data["address"]
-user.address
+print(user.address)
 
 
-class User:
+class User_not_pydantic:
 
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
 
 

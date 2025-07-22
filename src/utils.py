@@ -1,5 +1,5 @@
 # Addition
-def add(a, b):
+def add(a: int | float, b: int | float) -> int | float:
     """
     Adds two numbers together.
     """
@@ -7,7 +7,7 @@ def add(a, b):
 
 
 # Subtraction
-def subtract(a, b):
+def subtract(a: int | float, b: int | float) -> int | float:
     """
     Subtracts the second number from the first.
     """
@@ -15,7 +15,7 @@ def subtract(a, b):
 
 
 # Multiplication
-def multiply(a, b):
+def multiply(a: int | float, b: int | float) -> int | float:
     """
     Multiplies two numbers together.
     """
@@ -23,7 +23,7 @@ def multiply(a, b):
 
 
 # Division
-def divide(a, b):
+def divide(a: int | float, b: int | float) -> int | float:
     """
     Divides the first number by the second.
     Raises ValueError if the second number is zero.

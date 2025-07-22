@@ -20,7 +20,8 @@ dependencies = [
     "isort (>=6.0.1,<7.0.0)",
     "openai (>=1.97.0,<2.0.0)",
     "python-dotenv (>=1.1.1,<2.0.0)",
-    "pytest-cov (>=6.2.1,<7.0.0)"
+    "pytest-cov (>=6.2.1,<7.0.0)",
+    "mypy (>=1.17.0,<2.0.0)"
 ]
 
 
@@ -32,3 +33,11 @@ build-backend = "poetry.core.masonry.api"
 markers = [
   "isabel: mark tests as belonging to Isabel"
 ]
+
+[tool.mypy]
+python_version = "3.12"
+ignore_missing_imports = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+strict_optional = true
+warn_unused_ignores = true
