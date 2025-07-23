@@ -99,8 +99,8 @@ jobs:
       - name: Install dependencies
         run: poetry install --no-interaction --no-root
 
-      - name: Build Pelican site
-        run: poetry run pelican mysite  # or just pelican mysite if installed globally
+      - name: Build site with Pelican in production mode
+        run:  PYTHONPATH=. poetry run pelican mysite -s publishconf.py # build the site with production settings
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
