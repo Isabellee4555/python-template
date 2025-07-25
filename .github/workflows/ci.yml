@@ -137,10 +137,10 @@ jobs:
       - name: Run pre-commit hooks
         run: poetry run pre-commit run --all-files
 
-      - name: Smoke test: Import Streamlit
+      - name: "Smoke test: Import Streamlit"
         run: poetry run python -c "import streamlit"
 
-      - name: Smoke test: Start Streamlit app
+      - name: "Smoke test: Start Streamlit app"
         run: |
           nohup poetry run streamlit run app.py --server.headless true &
           sleep 10
