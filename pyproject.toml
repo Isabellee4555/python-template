@@ -45,3 +45,9 @@ disallow_untyped_defs = true
 check_untyped_defs = true
 strict_optional = true
 warn_unused_ignores = true
+
+name = "my-streamlit-app"
+version = "0.1.0"
+description = ""
+authors = ["Isabel <isabellee4555@gmail.com>"]
+package-mode = false
