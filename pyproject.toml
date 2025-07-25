@@ -46,6 +46,7 @@ check_untyped_defs = true
 strict_optional = true
 warn_unused_ignores = true
 
+[tool.poetry]
 name = "my-streamlit-app"
 version = "0.1.0"
 description = ""
