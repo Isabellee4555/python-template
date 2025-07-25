@@ -2,7 +2,7 @@ name: CI
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, streamlit-deploy]
   push:
     branches: '**'
 
@@ -109,7 +109,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./output
 
-    streamlit-check:
+  streamlit-check:
     if: github.ref == 'refs/heads/streamlit-deploy'
     runs-on: ubuntu-latest
     needs: [test]  # optionally ensure tests pass first
