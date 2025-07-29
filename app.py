@@ -1,3 +1,5 @@
+import io
+
 import numpy as np
 import pandas as pd
 import plotly.express as px
@@ -41,3 +43,31 @@ elif chart_type == "Scatter Plot":
     )
 
 st.plotly_chart(fig)
+
+st.sidebar.subheader("Download Data")
+# CSV Download
+csv = data.to_csv(index=False).encode("utf-8")
+st.sidebar.download_button(
+    label="Download CSV", data=csv, file_name="generated_data.csv", mime="text/csv"
+)
+
+output = io.BytesIO()
+with pd.ExcelWriter(output, engine="openpyxl") as writer:
+    data.to_excel(writer, index=False)
+excel_data = output.getvalue()
+
+st.sidebar.download_button(
+    label="Download Excel",
+    data=excel_data,
+    file_name="generated_data.xlsx",
+    mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+)
+
+st.sidebar.subheader("About")
+st.sidebar.info(
+    """
+This app generates random data and visualizes it using different chart types.
+You can adjust the number of rows and the type of chart from the sidebar.
+Feel free to explore and download the generated data.
+"""
+)
